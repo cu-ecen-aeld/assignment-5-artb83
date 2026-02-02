@@ -1,0 +1,5 @@
+config BR2_PACKAGE_LDD
+	bool "ldd"
+	help
+	  Includes the hello world kernel module, misc-modules and scull components.
+	  Used to understand buildroot external trees and package builds.
