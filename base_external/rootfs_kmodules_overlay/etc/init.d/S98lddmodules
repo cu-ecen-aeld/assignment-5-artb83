@@ -1,0 +1,20 @@
+#!/bin/sh
+
+case "$1" in
+	start)
+		echo "Loading scull and faulty.ko modules, insmod hello.ko"
+		/usr/bin/scull_load
+		/usr/bin/module_load faulty
+		/sbin/insmod         /lib/modules/$(uname -r)/extra/hello.ko
+		;;
+	stop)
+		echo "Unloading scull and faulty.ko modules, rmmod hello.ko"
+		/usr/bin/scull_unload
+		/usr/bin/module_unload faulty
+		/sbin/rmmod hello
+		;;
+	*)
+		echo "Usage: $0 {start|stop}"
+		exit 1
+esac
+exit 0
